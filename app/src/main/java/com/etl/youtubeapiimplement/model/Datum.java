@@ -1,23 +1,27 @@
 
 package com.etl.youtubeapiimplement.model;
 
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Datum {
-    public Datum() {
-    }
 
+    @SerializedName("title")
+    @Expose
+    private String title;
     @SerializedName("link")
     @Expose
     private String link;
-    @SerializedName("thumbnail")
+    @SerializedName("cover")
     @Expose
-    private Object thumbnail;
+    private String cover;
 
-    public Datum(String link) {
-        this.link = link;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getLink() {
@@ -28,12 +32,12 @@ public class Datum {
         this.link = link;
     }
 
-    public Object getThumbnail() {
-        return thumbnail;
+    public String getCover() {
+        return cover;
     }
 
-    public void setThumbnail(Object thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
 }

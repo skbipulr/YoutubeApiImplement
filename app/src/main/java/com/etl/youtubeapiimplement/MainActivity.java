@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private YoutubeAdapter youtubeAdapter;
     private List<Datum> videoList = new ArrayList<>();
     private ApiInterface apiInterface;
+    String mailLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
         apiInterface = RetrofitClient.getRetrofit().create(ApiInterface.class);
         recyclerView = findViewById(R.id.recyclerView);
-     /*   Datum datum = new Datum("https://www.youtube.com/embed/PRpsvXC8AWs");
-        videoList.add(datum);*/
+      //  Datum datum = new Datum("https://www.youtube.com/embed/PRpsvXC8AWs");
+      /*  videoList.add(new Datum(R.drawable.media));
+        videoList.add(new Datum(R.drawable.media));
+        videoList.add(new Datum(R.drawable.media));
+        videoList.add(new Datum(R.drawable.media));
+        videoList.add(new Datum(R.drawable.media));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        youtubeAdapter = new YoutubeAdapter(getApplicationContext(), videoList);
+        recyclerView.setAdapter(youtubeAdapter);
+        youtubeAdapter.notifyDataSetChanged();*/
+     mailLink = "https://www.youtube.com/embed/";
         getAllVideos();
+
+
+
 
     }
 
@@ -50,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.code() == 200) {
                     videoList = vedioResponse.getData();
-                    //    Toast.makeText(MainActivity.this, "" + eventList.size(), Toast.LENGTH_SHORT).show();
 
                     recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                     youtubeAdapter = new YoutubeAdapter(getApplicationContext(), videoList);
